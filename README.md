@@ -1,12 +1,6 @@
-# C-certificates
+# Certificates
 
-Certificates of the "C" programming language course from https://www.udemy.com/.
+List of certificates:
 
-Passed levels:
-- basic
-- advanced
-- expert
-
-Language versions:
-- English (ENG)
-- Polish (PL)
+- C
+- Altium Designer
