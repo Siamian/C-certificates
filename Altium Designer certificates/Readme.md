@@ -4,3 +4,4 @@ Certificates of the Altium Designer program course from https://education.altium
 
 Certificates:
 - Unit 1 - Introduction to PCB Design
+- Unit 2 - Schematics and Libraries
