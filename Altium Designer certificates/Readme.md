@@ -6,3 +6,4 @@ Certificates:
 - Unit 1 - Introduction to PCB Design
 - Unit 2 - Schematics and Libraries
 - Unit 3 - PCB Layout
+- Unit 4 - Routing and Basic Signal Integrity
