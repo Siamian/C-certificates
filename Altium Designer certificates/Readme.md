@@ -7,3 +7,4 @@ Certificates:
 - Unit 2 - Schematics and Libraries
 - Unit 3 - PCB Layout
 - Unit 4 - Routing and Basic Signal Integrity
+- Unit 5 - PCB Manufacturing
