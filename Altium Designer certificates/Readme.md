@@ -9,3 +9,7 @@ Certificates:
 - Unit 4 - Routing and Basic Signal Integrity
 - Unit 5 - PCB Manufacturing
 - FOR COMPLETION OF THE ALTIUM EDUCATION COURSE
+
+Trening projects:
+- Switching voltage regulator (DemoProject)
+- A Power Regulator and LED Board
