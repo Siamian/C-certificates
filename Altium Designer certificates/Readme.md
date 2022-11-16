@@ -8,3 +8,4 @@ Certificates:
 - Unit 3 - PCB Layout
 - Unit 4 - Routing and Basic Signal Integrity
 - Unit 5 - PCB Manufacturing
+- FOR COMPLETION OF THE ALTIUM EDUCATION COURSE
