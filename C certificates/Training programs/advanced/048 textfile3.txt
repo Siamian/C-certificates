@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+    int x;
+    FILE* f; // run creating file
+    f = fopen("hello.txt","r"); //creat file with  hello name and txt type, ON operation read( no overwrites)
+
+    fscanf(f,"%d",&x); //read digitalin file
+
+    printf("x= %d",x);
+
+    return 0;
+}

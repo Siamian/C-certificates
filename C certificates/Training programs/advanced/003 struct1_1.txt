@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+    int id;
+    int age;
+    double salary;
+
+    id=0;
+    age=20;
+    salary=3500.0; // salary in english = "wynagrodzenie"
+
+    printf("id: %d, age: %d, salary: %.2f\n",id,age,salary);
+
+    return 0;
+}

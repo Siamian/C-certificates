@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+typedef struct
+{
+    int id;
+    int age;
+    double salary;
+}Employee;
+
+void GiveRaise(Employee* employee) //employee is all in one variable type struct
+{
+    employee->salary+=1000;
+    //(*employee).salary+=1000; // <-- different version
+}
+
+int main()
+{
+    Employee employee;
+
+    employee.id=0;
+    employee.age=30;
+    employee.salary=3500.0;
+
+    printf("Salary before raise: %f\n",employee.salary);
+    GiveRaise(&employee);
+    printf("Salary after raise: %f\n",employee.salary);
+
+    return 0;
+}

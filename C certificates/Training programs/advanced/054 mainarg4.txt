@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+#define FILE_NOT_OPENED 1
+#define IMPROPER_USAGE 2
+
+int main(int argc, char** argv)
+{
+    FILE* f;
+     char c;
+
+    if(argc!=2) //check arguments, we must include one arguments +1(name: mainarg4)
+    {
+        printf("Usage: cat filename");
+        return IMPROPER_USAGE;
+    }
+
+    f=fopen(argv[1],"r"); //creat new file with name like a firs argument, in read mode
+                            //argv[1] do not have " "
+    if(f==NULL) //check f, if f= 0 then file is no opened, NULL = 0 for pointers
+    {
+        printf("Error: file %s could not be opened",argv[1]);
+        return FILE_NOT_OPENED;
+    }
+
+    while((c=fgetc(f))!=EOF) //must be fgetc no getchar
+        putchar(c);
+
+    fclose(f);
+
+    return 0;
+}
+//in console write: mainarg demo.txt
+// demo is example file tyoe txt with data for program
+// in side demo txt: abcd kse xyz

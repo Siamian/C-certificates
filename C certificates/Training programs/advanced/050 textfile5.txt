@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#define BUFF_LEN 1024
+
+int readline(FILE* f,char line[]) // FILE* is pointer variable type
+{
+    int len=0;
+    char c;
+
+    while((c=fgetc(f))!='\n' && c!=EOF) //c=fgetc(f)    <== read char from file txt type
+    {
+        line[len]=c;
+        len++;
+    }
+    line[len]=0;   
+
+    return len;
+}
+
+int main()
+{
+    char line[BUFF_LEN];
+    int len;
+    FILE* f;
+
+    f=fopen("hello.txt","r");
+
+    if(f==NULL) // for pointer variables NULL is like a '0' , checking for the existence of a file
+    {
+        printf("File hello.txt could not be opened\n");
+    }else
+    {
+        while(len=readline(f,line)>0)
+            printf("%s\n",line);
+
+        fclose(f);
+
+        return 0;
+    }
+
+}

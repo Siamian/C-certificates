@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+#define SIZE 5
+
+int main()
+{
+    char dungeons[SIZE*SIZE] = {'#','#','#','#','#', // table of one dimension works like a two dimension
+                                 '#',' ',' ',' ','#',
+                                 '#',' ','#',' ','#',
+                                 '#','#','#',' ','#',
+                                 '#',' ','#',' ','#'};
+
+    int i,j;
+
+    for(i=0;i<5;i++) // print map
+    {
+        for(j=0;j<5;j++)
+        {
+            putchar(dungeons[j+SIZE*i]); //special print to look like two dimension
+            // printf("%s",dungeons[i][j]); // dont work
+        }
+        printf("\n");
+    }
+
+    return 0;
+}

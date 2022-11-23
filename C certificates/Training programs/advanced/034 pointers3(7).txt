@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int strlen(char* text)
+//int strlen(char text[])
+{
+    int len =0;
+
+    while(*text!=0) //porównanie aktualnej zawartosci pierwszego elementu tablicy ( po przesunięciu)
+    {
+        len++;
+        text++; //aktualny adres tablicy przesuwany o 1 dalej (kolejny element tablicy staje sie pierwszym)
+    }
+    return len;
+}
+
+int main()
+{
+    char text[20] = "Hello";
+
+    int len = strlen(text);
+
+    printf("%s\n",text);
+    printf("strlen: %d\n",len);
+
+    return 0;
+}

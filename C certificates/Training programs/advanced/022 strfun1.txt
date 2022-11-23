@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h> //library for function strcpy
+
+#define MAX_LEN 256
+/*
+void strcpy(char strout[],char strin[])//rewriting from table to table function
+{
+    int i =0;
+    while(strin[i]!=0)
+    {
+        strout[i]=strin[i];
+         i++;
+    }
+    strout[i]=0;
+}
+*/
+int main()
+{
+    char strin[MAX_LEN];
+    char strout[MAX_LEN];
+
+    scanf("%s",strin);
+
+    strcpy(strout,strin);
+
+    printf("strcpy: %s",strout);
+
+    return 0;
+}

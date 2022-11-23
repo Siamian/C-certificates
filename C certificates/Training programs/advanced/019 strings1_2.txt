@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main ()
+{
+    char text[20] = "Long Message"; //table of char , Hello in 0-4 place in the table, other are 0...
+
+    scanf("%s",text); // table do not need &
+
+    text[5]='a'; //after scanf "Hello", in text[5] included '0'
+
+    printf("%s\n",text); //display text in table text [], when '0' inside table then do not displayed more
+    //display table content , %s for char table
+
+    return 0;
+}

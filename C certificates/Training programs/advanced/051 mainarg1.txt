@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main(int argc, char** argv) // int argc is value of arguments + 1(name program: mainarg)
+{                               //char** argv is (point of ponter) table whith names arguments (first is name program: mainarg)
+    printf("argc: %d\n",argc);
+
+    return 0;
+}

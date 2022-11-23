@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+#define LEN 5
+
+
+//this is void function, no return values
+void MultiplyArrayBy2(int array[]) //this table is not coppy int a[LEN]
+{
+    int i;
+    for (int i =0;i<LEN;i++)
+    array[i]*=2; //changes are true outside function
+}
+
+int main()
+{
+    int a[LEN],i;
+
+    for (int i =0;i<LEN;i++)
+    a[i]=i;
+
+    MultiplyArrayBy2(a);
+
+    return 0;
+}

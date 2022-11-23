@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+typedef struct  //structure as a data type
+{
+    int id;
+    int age;
+    double salary;
+}Employee; //name new data type
+
+void PrintEmployeeStatus (Employee employee) //function argument is new type data 'Employee'
+{
+printf("id: %d, age: %d, salary: %.2f\n",employee.id,employee.age,employee.salary); // w zależności od podania argumentu wywołując funkcje : employee (this is local variable in function ) get values in this program employee1 and next line employee2
+}
+
+int main()
+{
+ Employee employee1, employee2; //variable new type (type create by me)
+
+ employee1.id=0;
+ employee1.age=20;
+ employee1.salary=3500.0; 
+
+ employee2.id=1;
+ employee2.age=35;
+ employee2.salary=5600.5; 
+
+ PrintEmployeeStatus(employee1);
+ PrintEmployeeStatus(employee2);
+
+    return 0;
+}

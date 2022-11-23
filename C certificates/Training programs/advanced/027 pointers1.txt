@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+    int a;
+    int b;
+    int* ptr; //variables type int pointer 
+    // int *ptr; // <--- this is different version
+                //wskaźnik na zmienna typu int czyli dla *ptr przechowuje wartość, a dla ptr  przyjmuje adres
+    ptr = &a; //take variable a address 
+    *ptr = 1; // writing value in actual address (address a)
+    printf("a= %d, b= %d, ptr= %d\n",a,b,ptr);
+
+    ptr = &b; //take variable b address 
+    *ptr = 2; // writing value in actual address (address b)
+    printf("a= %d, b= %d, ptr= %d\n",a,b,ptr);
+
+    return 0;
+}

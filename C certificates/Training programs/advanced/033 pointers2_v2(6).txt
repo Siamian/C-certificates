@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+void IncreasePtr(int** p) // argumentem jest adres wskaznika który przechowuje adres, tutaj tablicy array[2]  
+{ //int** p    <-- przechowuje w sobie(wskazuje na) adres argumentu wprowadzanego do funkcji czyli adresu &ptr, a sam wsobie jest kopia i jest pod nowym adresem
+(*p)++; //zwiększamy adres przechowywany przez wskaznik ptr o 1 wielkość typu danych tutaj int 4 bity 
+printf("%d\n",**p); //wyświetlamy to co znajduje sie w adrsie (array[2]) znajdującym się w wskazniku ptr
+}
+
+int main()
+{
+    int array[3] ={100,101,102};
+
+    int *ptr; //zmienna wskaźnikowa czyli taka która przechowuje adres
+    //ptr=&(array[1]);
+    ptr=array+1; // przechowywujemy przez wskaznik adres  array[1] 
+
+    printf("%d\n",*ptr);
+    IncreasePtr(&ptr); // argumentem jest adres pod ktorym przechowujemy wskaznik który przechowuje adres tablicy array[1]
+    printf("%d\n",*ptr);
+
+
+
+    return 0;
+}

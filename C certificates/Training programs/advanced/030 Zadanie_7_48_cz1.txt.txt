@@ -1,0 +1,7 @@
+typedef struct Employee
+{
+    int age;
+    double salary;
+} Employee;
+
+void IncreaseAge(Employee* employee, int years);

@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+   void increaseNumer(int num)
+    {
+        num++;
+    }
+
+   void increasePtr(int* num)
+   {
+       (*num)++; 
+       // *num++; //<-- is not correctly
+   }
+
+
+
+int main()
+{
+    int a;
+    
+    a=1;
+    increaseNumer(a);
+    increasePtr(&a);
+
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>  //for malloc function
+//better version on all PC
+int main()
+{
+    char some_char='A';
+    char* text;
+    int len;
+
+    printf("some_char: %c\n",some_char);
+
+    printf("Enter message lenght: ");
+    scanf("%d",&len);
+
+    text=(char*)malloc(sizeof(char)*len);
+
+    printf("Enter message: ");
+    scanf("%s",text);
+
+    printf("Message length: %d\n",strlen(text));
+
+    printf("some_char: %c\n",some_char); //if text is longer than size tabel then we can not see part of text in variable some _char
+
+    return 0;
+}

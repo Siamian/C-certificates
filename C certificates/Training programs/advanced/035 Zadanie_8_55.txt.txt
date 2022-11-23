@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+#define LEN 5
+
+void Sort(int* array, int len)
+{
+    int a,i=0,j=0,b;
+    
+    while(j<len)
+    {
+        a = *(array+j);
+        
+        while((i+j)<len)
+        {
+            if(*(array+i+j)<a)
+            {
+            b=a;
+            a=*(array+i+j);
+            *(array+i+j) = b;
+             }
+            i++;
+        }
+        i=0;
+        array[j] = a;
+        j++;
+  
+        
+    }
+}
+
+
+
+int main ()
+{
+    int array[LEN] = {10,12,3,1,13};
+
+    Sort(array, LEN);
+    
+for (int i=0;i<LEN;i++)
+    printf("%d,",array[i]);
+
+    return 0;
+}
+
+

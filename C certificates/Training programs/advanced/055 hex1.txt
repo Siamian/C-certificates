@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main()
+{
+    int x=0x2A; // in hexa
+
+    printf("%d\n",x); // print in dec
+    printf("%x\n",x); // print in hex
+
+    return 0;
+}

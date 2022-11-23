@@ -1,0 +1,6 @@
+#define FORMULA(a,b) a/(b)
+
+int TestFormula()
+{
+    return FORMULA(1+21, 4-1);
+}

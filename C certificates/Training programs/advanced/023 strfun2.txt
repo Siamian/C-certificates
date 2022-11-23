@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h> //library for strlen function
+
+#define MAX_LEN 256
+
+/*int strlen(char text[]) //count signs function
+{
+    int len =0;
+    while(text[len]!=0)
+    {
+        len++;
+    }
+    return len;
+} 
+*/
+int main()
+{
+
+    char text[MAX_LEN];
+
+    scanf("%s",text);
+
+    printf("strlen: %d\n",strlen(text));
+    return 0;
+}

@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main ()
+{
+    char text[20] = "Hello"; //table of char , Hello in 0-4 place in the table, other are 0...
+
+    printf("%s\n",text); //display table content , %s for char table
+
+    return 0;
+}

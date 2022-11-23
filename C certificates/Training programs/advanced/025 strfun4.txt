@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+#define MAX_LEN 256
+
+int strcmp(char str1[], char str2[]) //function for comparison of words
+{
+    int i =0;
+
+    while(str1[i]!=0 && str2[i]!=0)
+    {
+        if(str1[i]<str2[i])
+        return 1;
+
+        if(str1[i]>str2[i])
+        return -1;
+
+        i++;
+    }
+    if (str1[i]==0 && str2[i]!=0)
+    return -1;
+
+    if (str1[i]!=0 && str2[i]==0)
+    return 1;
+
+    return 0;
+}
+
+int main()
+{
+    char str1[MAX_LEN];
+    char str2[MAX_LEN];
+
+     scanf("%s",str1);
+     scanf("%s",str2);
+
+    printf("strcmp: %d",strcmp(str1,str2));
+
+    return 0;
+}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+//better version on all PC
+int main()
+{
+    char some_char='A';
+    char* text;
+    int len;
+
+    printf("some_char: %c\n",some_char);
+
+    while(1) //never ending loop
+    {
+    printf("Enter message lenght: ");
+    scanf("%d",&len);
+
+    text=(char*)malloc(sizeof(char)*len);
+
+    printf("Enter message: ");
+    scanf("%s",text);
+
+    printf("Message length: %d\n",strlen(text));
+    free(text); // memory release , from stdlib library
+    }
+    printf("some_char: %c\n",some_char); //if text is longer than size tabel then we can not see part of text in variable some _char
+
+    return 0;
+}

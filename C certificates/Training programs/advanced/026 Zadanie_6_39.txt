@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+#define MAX_LEN 50
+
+void function1(char str1[], char str2[], char str3[])
+{
+    int i =0,j=0;
+    
+    while(str1[j]!=0 && str2[j]!=0)
+    {
+        str3[i] = str1[j];
+        str3[i+1] = str2[j];
+        i+=2;
+        j++;
+    }
+    
+    if (str1[j]==0 && str2[j]!=0)
+    {
+        while(str2[j]!=0)
+        {
+            str3[i]= str2[j];
+            i++;
+            j++;
+        }
+        str3[i]=0;
+    }
+    
+    else if (str1[j]!=0 && str2[j]==0)
+    {
+        while(str1[j]!=0)
+        {
+            str3[i]= str1[j];
+            i++;
+            j++;
+        }
+        str3[i]=0;
+    }
+    else
+    str3[i]=0;
+}
+
+int main()
+{
+    char str1[MAX_LEN];
+    char str2 [MAX_LEN];
+    char str3[MAX_LEN];
+    
+   scanf("%s",str1);
+   scanf("%s",str2);
+
+    function1(str1,str2,str3);
+
+    printf(" %s\n",str3);
+   
+    return 0;
+}

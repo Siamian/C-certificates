@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+    FILE*  f; // run creating file
+    f=fopen("hello.txt","a"); //creat file with  hello name and txt type, ON operation write( no overwrites)
+
+    fprintf(f,"Hello world"); //write Hello world in side this file for existing content 
+
+    fclose(f); // OFF operation write on this file
+
+    return 0;
+}

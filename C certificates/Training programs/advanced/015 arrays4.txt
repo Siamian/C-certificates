@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+#define LEN 3
+
+int main()
+{
+    int array1[LEN];
+    int array2[LEN];
+    int array3[LEN];
+
+    for(int i=0;i<LEN;i++)
+    {
+        array1[i]=1;
+        array2[i]=2;
+        array3[i]=3;
+    }
+
+    array2[-1]=2; //write a value to low bites address : array2[-1]= array3[2]
+    array2[3]=2; //write a value to hight bites address : array2[3]= array1[0]
+
+    return 0;
+}

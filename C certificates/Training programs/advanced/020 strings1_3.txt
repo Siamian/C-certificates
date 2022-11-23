@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main ()
+{
+    char text[20] = {'H','e','l','l','o',0}; //table of chars, we need put 0 on last position
+
+
+    printf("%s\n",text); //display text in table text [], when '0' inside table then do not displayed more
+    //display table content , %s for char table
+
+    return 0;
+}

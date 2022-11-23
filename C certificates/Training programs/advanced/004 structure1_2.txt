@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    struct //a structure that stores many kinds of data under one
+    {
+    int id;         //one of the variables of the structure
+    int age;        //one of the variables of the structure
+    double salary;  //one of the variables of the structure
+    }employee1, employee2; //number of elements in the structure
+
+    employee1.id=0; //assigning a value to a structure element 1
+    employee1.age=20; //assigning a value to a structure element 1
+    employee1.salary=3500.0; //assigning a value to a structure element 1
+
+    employee2.id=1; //assigning a value to a structure element  2
+    employee2.age=35; //assigning a value to a structure element 2
+    employee2.salary=5600.5; //assigning a value to a structure element 2
+
+    printf("id: %d, age: %d, salary: %.2f\n",employee1.id,employee1.age,employee1.salary);
+    printf("id: %d, age: %d, salary: %.2f\n",employee2.id,employee2.age,employee2.salary);
+
+
+    return 0;
+}

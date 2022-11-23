@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+#define PLANCK_CONSTANT 6.62607e-34  //assigning a value to global variable
+#define VELOCITY_OF_LIGHT 3e8        //assigning a value to global variable
+
+#define LOG // control #ifdef and #ifndef,  true if #define LOG IS in code , false if #define LOG IS NOT in code
+// now #ifdef IS ON so printf("Wavelength before user input: %e\n", wavelength);  It will be made
+
+int main()
+{
+    double  wavelength;
+
+//#ifndef LOG  //includes to compilation if: #define LOG IS NOT in line code
+#ifdef LOG     //includes to compilation if: #define LOG IS in line code ////function inside ifdef
+    printf("Wavelength before user input: %e\n", wavelength);
+#endif //end of line ifdef
+
+    printf("Photon wavelength: ");
+    scanf(" %lf",&wavelength);
+
+//#ifndef LOG //includes to compilation if: #define LOG IS NOT in line code
+#ifdef LOG    //includes to compilation if: #define LOG IS in line code
+    printf("Wavelength after user input: %e\n",wavelength); //function inside ifdef
+#endif //end of line ifdef
+
+    printf("Photon momentum: %e\n",PLANCK_CONSTANT/wavelength); // %e for values writed as *10^x example: 6.6e-34 = 6,6*10^(-34)
+    printf("Photon energy: %e\n",PLANCK_CONSTANT*VELOCITY_OF_LIGHT/wavelength);  // %e for values writed as *10^x
+
+    return 0;
+}

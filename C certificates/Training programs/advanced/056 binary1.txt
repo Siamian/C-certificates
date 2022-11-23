@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+    FILE* f;
+    //int data=124; 
+    int data=0xABC1234; //hexa mode
+
+    f=fopen("demo.bin","wb"); // wb is write to binary file
+
+    fwrite(&data,sizeof(int),1,f); // sizeof(int) is 8 Byte, 1 is number of digitals to write
+
+    fclose(f);
+
+    return 0;
+}

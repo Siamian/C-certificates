@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+    FILE* f;
+     char c;
+
+    f=fopen(argv[1],"r"); //creat new file with name like a firs argument, in read mode
+                            //argv[1] do not have " "
+    while((c=fgetc(f))!=EOF) //must be fgetc no getchar
+        putchar(c);
+
+    fclose(f);
+
+    return 0;
+}
+//in console write: mainarg demo.txt
+// demo is example file tyoe txt with data for program
+// in side demo txt: abcd kse xyz

@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h> //for malloc function
+
+#define SIZE 5
+
+int main()
+{
+    char** dungeons; //pointer on table of tables of variables type char
+
+    int i,j;
+
+    dungeons = (char**)malloc(SIZE*sizeof(char*)); //memory for pointers in table
+
+    for(i=0;i<SIZE;i++) //memory for variables type char in tables from pointers up
+        dungeons[i]=(char*)malloc(SIZE*sizeof(char)); 
+
+    dungeons[0][0] ='#'; dungeons[0][1] ='#'; dungeons[0][2] ='#'; dungeons[0][3] ='#'; dungeons[0][4] ='#';
+    dungeons[1][0] ='#'; dungeons[1][1] =' '; dungeons[1][2] =' '; dungeons[1][3] =' '; dungeons[1][4] ='#';
+    dungeons[2][0] ='#'; dungeons[2][1] =' '; dungeons[2][2] ='#'; dungeons[2][3] =' '; dungeons[2][4] ='#';
+    dungeons[3][0] ='#'; dungeons[3][1] ='#'; dungeons[3][2] ='#'; dungeons[3][3] =' '; dungeons[3][4] ='#';
+    dungeons[4][0] ='#'; dungeons[4][1] =' '; dungeons[4][2] ='#'; dungeons[4][3] =' '; dungeons[4][4] ='#';
+
+    for(i=0;i<5;i++) // print map
+    {
+        for(j=0;j<5;j++)
+        {
+            putchar(dungeons[i][j]);
+            // printf("%s",dungeons[i][j]); // dont work
+        }
+        putchar('\n');
+    }
+
+    for(i=0;i<SIZE;i++) // this loop must be before free(dungeons), because in dungeons are dungeons[i] pointers 
+        free(dungeons[i]);
+    
+    free(dungeons);
+
+    return 0;
+}

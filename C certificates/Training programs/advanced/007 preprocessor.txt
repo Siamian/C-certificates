@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+#define PLANCK_CONSTANT 6.62607e-34  //assigning a value to global variable
+#define VELOCITY_OF_LIGHT 3e8        //assigning a value to global variable
+
+int main()
+{
+    double  wavelength;
+
+    printf("Photon wavelength: ");
+    scanf(" %lf",&wavelength);
+
+   // printf("Photon momentum: %e\n",6.6e-34/wavelength); // %e for values writed as *10^x example: 6.6e-34 = 6,6*10^(-34)
+   // printf("Photon energy: %e\n",6.6e-34*3e8/wavelength);  // %e for values writed as *10^x
+
+    printf("Photon momentum: %e\n",PLANCK_CONSTANT/wavelength); // %e for values writed as *10^x example: 6.6e-34 = 6,6*10^(-34)
+    printf("Photon energy: %e\n",PLANCK_CONSTANT*VELOCITY_OF_LIGHT/wavelength);  // %e for values writed as *10^x
+
+    return 0;
+}

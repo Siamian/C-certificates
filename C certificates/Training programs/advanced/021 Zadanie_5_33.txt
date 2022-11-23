@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int i=0,a=0;
+    char b;
+    char table[50];
+    scanf("%s",table);
+    while(table[i] != 0)
+        i++;
+        
+        while(a<i)
+        {
+                i--;
+                b = table[a];
+                table[a]=table[i];
+                table[i]=b;
+                a++;
+        }
+    
+    printf("%s",table);
+
+    return 0;
+}

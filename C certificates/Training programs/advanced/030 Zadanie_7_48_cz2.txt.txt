@@ -1,0 +1,6 @@
+#include "exercise.h"
+
+void IncreaseAge(Employee* employee, int years)
+{
+    employee->age+=years;
+}

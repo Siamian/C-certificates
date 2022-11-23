@@ -1,0 +1,11 @@
+typedef struct Share
+{
+    double price;
+    double earning;
+} Share;
+
+double ComputePE(Share share)
+{
+    return share.price/share.earning;
+    
+}

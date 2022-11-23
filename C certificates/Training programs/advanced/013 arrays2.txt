@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+#define NO_EMPLOYEES 4
+
+typedef struct  //structure as a data type
+{
+    int id;
+    int age;
+    double salary;
+}Employee; //name new data type
+
+void PrintEmployeeStatus (Employee employee) //function argument is new type data 'Employee'
+{
+printf("id: %d, age: %d, salary: %.2f\n",employee.id,employee.age,employee.salary); // w zależności od podania argumentu wywołując funkcje : employee (this is local variable in function ) get values in this program employee1 and next line employee2
+}
+
+int main()
+{
+ int i;
+ Employee employee[NO_EMPLOYEES]; //create table with 3 variables inside
+
+ employee[0].id=0;              //table 1 position
+ employee[0].age=20;            //table 1 position
+ employee[0].salary=3500.0;     //table 1 position
+
+ employee[1].id=1;              //table 2 position
+ employee[1].age=35;             //table 2 position
+ employee[1].salary=5600.5;     //table 2 position
+
+ employee[2].id=2;              //table 3 position
+ employee[2].age=30;            //table 3 position
+ employee[2].salary=5000.5;      //table 3 position
+
+for (int i=0;i<NO_EMPLOYEES;i++)
+ PrintEmployeeStatus(employee[i]); //display date in  'i' position in table
+
+    return 0;
+}
