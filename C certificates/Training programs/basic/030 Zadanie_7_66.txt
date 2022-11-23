@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+
+{
+
+    int number;
+    char result;
+
+    scanf("%d", &number);
+
+    /*Uzupełnij linijkę poniżej*/
+    result = (number > 0) ? '+' : '-';
+    /***************************/
+
+    printf("%c", result);
+
+    return 0;
+}

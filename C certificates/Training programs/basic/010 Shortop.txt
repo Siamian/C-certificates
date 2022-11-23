@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+	int x;
+
+	x = 15; //change value x variable on 15
+	printf("x=%d\n", x);
+
+	x = x/2; // first math operation with present x value and then change value x variable
+	printf("x=%d\n", x);
+
+	x = x * 2; // first math operation with present x value and then change value x variable
+	printf("x=%d\n", x);
+	
+	x = x + 1; // first math operation with present x value and then change value x variable
+	printf("x=%d\n", x);
+
+	x = x - 1; // first math operation with present x value and then change value x variable
+	printf("x=%d\n", x);
+
+	return 0;
+}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void animation() // this function is type void --> dont return any values
+{
+	unsigned long long int i; //this variable must be inside  suitable function
+	int j; //this variable must be inside  suitable function
+
+	/**********Animation loop*********/
+	for (j = 0; j < 3; j++) // repeats x3
+	{
+		/*Long empty loop causes program to delay*/
+		for (i = 0; i < 160000000; i++) {}               //delay, " {} " on end of line work like a " ; "
+		printf("."); // this function is out loop
+	}
+	for (i = 0; i < 160000000; i++);					 //delay, " ; " on end of line work like a " {} "
+	printf("\n"); // this function is out loop
+/***********************************/
+}
+
+int main() // this main  function is type int --> return values type int : 0
+{
+	printf("Hello");
+	animation();
+
+	printf("Follow the white rabbit");
+	animation();
+
+	return 0; // this values is return after finish function
+}

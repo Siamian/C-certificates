@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+
+
+    /*Comment*/
+    //Coment
+    int num1, num2;
+
+    printf("Enter number1;\n");
+    scanf("%d", &num1);
+
+    printf("Enter number 2:\n");
+    scanf("%d", &num2);
+
+    printf("%d+%d=%d\n", num1, num2, num1 + num2);
+    printf("%d-%d=%d\n", num1, num2, num1 - num2);
+    printf("%d/%d=%d\n", num1, num2, num1 / num2); //division without change
+    printf("%d%%%d=%d\n", num1, num2, num1%num2); //function modulo: the rest of the division,  %d%%%d=%d  there must be so much here %d %% %d for print one % we must used two %
+
+    return 0;
+}

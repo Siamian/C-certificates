@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+	int x;
+
+	x = 15; //change value x variable on 15
+	printf("x=%d\n", x);
+
+	x/=2; // shortened entry, first math operation with present x value and then change value x variable
+	printf("x=%d\n", x);
+
+	x*=2; 
+	printf("x=%d\n", x);
+
+	x++;  //increment : increase by 1 after code line
+	printf("x=%d\n", x);
+
+	x--;  //decrement: reduction by 1 after code line
+	printf("x=%d\n", x);
+
+	++x; //increment: increase by 1 before code line
+	printf("x=%d\n", x);
+
+	--x; //decrement: reduction by 1 before code line
+	printf("x=%d\n", x);
+
+	return 0;
+}

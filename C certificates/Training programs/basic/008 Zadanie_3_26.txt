@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+
+
+    /*W tym miejscu umieść swój kod*/
+    float a, b, c; //more optimal version creating variables the same types
+
+    //float a;
+    //float b;
+    //float c;
+
+    scanf("%f %f %f", &a, &b, &c); //more optimal load a numbers in the same moment
+    // "%f, %f, %f"  between %f, %f we cant use comma
+
+    //scanf("%f", &a);
+    //scanf("%f", &b);
+    // scanf("%f", &c);
+
+    printf("%.1f", 2 * a + b - c); // warning arithmetic overflow, %.1f one number after comma
+   
+    
+    /*******************************/
+
+    return 0;
+}

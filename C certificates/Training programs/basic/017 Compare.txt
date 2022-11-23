@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main ()
+{
+    int x = 10;
+    int y = 12;
+
+    printf("%d==%d: %d\n", x, y, x == y); // check: x equal y
+    printf("%d!=%d: %d\n", x, y, x != y); // check: x various y
+    printf("%d>%d: %d\n", x, y, x > y); // check: x smaller y
+    printf("%d<%d: %d\n", x, y, x < y); // check: x bigger y
+    printf("%d>=%d: %d\n", x, y, x >= y); // check: x greater than or equal to y
+    printf("%d<=%d: %d\n", x, y, x <= y); // check: x less or equal y
+    // print "0" false or "1" true
+
+    return 0;
+}

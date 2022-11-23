@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    int i;
+    printf("Enter number:\n");
+    scanf("%d", &i);
+
+    for (i = i; i > 0; i--)
+    {
+        if (i % 2)
+            printf("%d, ", i);
+    }
+    return 0;
+}

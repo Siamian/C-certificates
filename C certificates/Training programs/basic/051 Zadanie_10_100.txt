@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+int main()
+{
+    char c;
+    int w = 0;
+    int s = 0;
+    char b;
+
+    while ((c = getchar()) != EOF)
+    {
+        if ((c == '"')&& (w==0))
+            s++;
+
+        if (s == 0)
+        {
+
+
+            if ((c == '/') && (w == 0))
+            {
+                w = 1;
+                b = c;
+            }
+            else if ((c != '*') && (w == 1))
+            {
+                w = 0;
+                putchar(b);
+            }
+            if ((c == '*') && (w == 1))
+            {
+                w = 2;
+            }
+
+            if ((w == 2) && (c == '*'))
+            {
+                w = 3;
+            }
+            else if ((w == 3) && (c != '/') && (c != '*'))
+                w = 2;
+
+            if ((w == 3) && (c == '/'))
+            {
+                w = 0;
+            }
+            else if ((w == 3) && (c == '*'))
+            {
+                w = 3;
+            }
+            else if (w == 0)
+                putchar(c);
+
+
+        }
+        if (s != 0)
+            putchar(c);
+        if (s == 2)
+            s = 0;
+    }
+
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+//this function return values type of double and get argument type of double
+double circleArea(double radius) //argument 'double radius' in function circleArea =/= 'double radius' in main loop
+{
+	double area; // we dont need add 'double radius' becouse it is up 
+	//argument 'double area' in function circleArea = /=  'double area' in main loop
+		area = 3.14 * radius * radius;
+	return area;
+}
+
+int main()
+{
+	double radius;
+	double area;
+
+	printf("Enter radius of a circle: \n");
+	scanf("%lf", &radius); //need %lf
+
+	area = circleArea(radius); //induction function with argument, this radius is from main loop
+
+	printf("Circle area: %.3f\n", area);
+
+	return 0;
+}

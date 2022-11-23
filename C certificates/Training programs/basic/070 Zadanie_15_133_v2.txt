@@ -1,0 +1,26 @@
+#include <stdio.h>
+ 
+int greatest_common_divisor(int a, int b)
+{
+  int c;
+  while (b!=0)
+  {
+    c=a%b;
+    a=b;
+    b=c;
+  }
+  return a;
+}
+ 
+int main()
+{
+	int a;
+	int b;
+ 
+	while (scanf("%d %d",&a,&b)>=2)
+	{
+		printf("%d\n",greatest_common_divisor(a,b));
+	}
+ 
+	return 0;
+}

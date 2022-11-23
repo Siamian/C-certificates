@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+    int x;
+    int y;
+
+    printf("Podaj zmienne x oraz y\n");
+    scanf("%d", &x);
+    scanf("%d", &y);
+
+    printf("x XOR y : %d", (x && !y) || (!x && y));
+
+        return 0;
+}
+
+/* TO AKCEPTUJE KURS hmmm... \/
+#include <stdio.h>
+
+int main_test()
+{
+int x;
+int y;
+scanf("%d", &x);
+scanf("%d", &y);
+
+printf("%d", (x && !y) || (!x && y));
+
+return 0;
+}
+*/

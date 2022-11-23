@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+	int num1; //creat varible type int num1 
+	int num2;
+
+	printf("Enter number 1 :\n"); //  \n  (line feed) start next line of code on next line
+	scanf("%d", &num1); // load values type of int and save on adress variable num1 
+
+	printf("Enter number 2 \n");
+	scanf("%d", &num2);
+
+	printf("%d+%d=%d\n", num1, num2, num1 + num2); //%d display value of variables num1, num2
+	return 0;
+}

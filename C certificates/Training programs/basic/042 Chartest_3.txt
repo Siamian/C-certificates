@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+	char c;
+
+	while ((c = getchar()) != EOF)
+		if(c != 10) //without button 'enter'
+		putchar(c + 'A' - 'a'); //change little letter on big letter and print this
+
+
+
+
+	return 0;
+}

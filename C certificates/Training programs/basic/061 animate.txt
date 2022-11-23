@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+	unsigned long long int i; //very big  int type
+	int j;
+
+	printf("Hello");
+	/**********Animation loop*********/
+	for (j = 0; j < 3; j++) // repeats x3
+	{
+		/*Long empty loop causes program to delay*/
+		for (i = 0; i < 160000000; i++) {}               //delay, " {} " on end of line work like a " ; "
+		printf("."); // this function is out loop
+	}
+	for (i = 0; i < 160000000; i++);					 //delay, " ; " on end of line work like a " {} "
+		printf("\n"); // this function is out loop
+	/***********************************/
+
+		printf("Follow the white rabbit");
+		//we repeat the same function: "Animation loop" again
+		/**********Animation loop*********/
+		for (j = 0; j < 3; j++) // repeats x3
+		{
+			/*Long empty loop causes program to delay*/
+			for (i = 0; i < 160000000; i++) {}               //delay, " {} " on end of line work like a " ; "
+			printf("."); // this function is out loop
+		}
+		for (i = 0; i < 160000000; i++);					 //delay, " ; " on end of line work like a " {} "
+		printf("\n"); // this function is out loop
+	/***********************************/
+
+	return 0;
+}

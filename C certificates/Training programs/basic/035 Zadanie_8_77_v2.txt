@@ -1,0 +1,14 @@
+#include <stdio.h>
+ 
+int main()
+{
+    int first_number;
+    scanf("%d",&first_number);
+    while (first_number>1)
+    {
+        printf("%d, ",first_number);
+        first_number-=2;
+    }
+    printf("1");
+    return 0;
+}

@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+	float num1; //creat varible type float num1 
+	float num2;
+
+	printf("Enter number 1 :\n"); // \n(line feed)  start next line of code on next line
+	scanf("%f", &num1); // load values type of float and save on adress variable num1 
+
+	printf("Enter number 2 \n"); 
+	scanf("%f", &num2);
+
+	printf("%f+%f=%f\n", num1, num2, num1 + num2); //%f display value type float variables num1, num2
+	printf("%.2f+%.2f=%.2f", num1, num2, num1 + num2); //%.2f round values to two numbers after comma
+	return 0;
+}

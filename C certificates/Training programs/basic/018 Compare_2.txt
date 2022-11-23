@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main ()
+{
+    int x = 10;
+    int y = 12;
+
+    printf("x==y: %d\n", x==y); // check: x equal y
+    printf("x=y: %d\n", x=y); // change value x on value y
+    printf("x=%d\n", x); // check: x value
+
+    // print "0" false or "1" true
+
+    return 0;
+}

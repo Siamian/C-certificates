@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int size = 5; //global variable
+
+void square()
+{
+	int row, col;
+
+	for (row = 0; row < size; row++) // function use global variable
+	{
+		for (col = 0; col < size; col++)
+			printf("--");
+		printf("\n"); // out of loop
+	}
+}
+
+int main()
+{
+	//int size = 10; // creat new variable type int, this int size =/= int size global variable
+	size = 10; // change global variable value
+
+	square(); // befor function square global variable change values on 10
+
+	return 0;
+}

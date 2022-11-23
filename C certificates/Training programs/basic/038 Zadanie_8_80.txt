@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+	int i, x, s = 0, y = 0;
+
+	printf("Quantity of number: \n");
+	scanf("%d", &x);
+
+	if (x)
+	{
+		for (i = 1; i <= x; i++)
+		{
+			printf("Enter number %d: \n", i);
+			scanf("%d", &y);
+			s += y;
+		}
+		printf("Sum of number: %d \n", s);
+	}
+	else
+		printf("Sum of number: %d \n", s);
+
+	return 0;
+}

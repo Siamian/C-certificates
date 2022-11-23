@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+	float num, abs;
+
+	printf("Enter number:\n");
+	scanf("%f", &num);
+
+	abs = (num >= 0) ? num : -num; //if 'num' is greater or less than 0, 
+	//it remains unchanged 'num' otherwise it will be change on '-num'
+
+	printf("|%.2f|=%.2f", num, abs); 
+
+	return 0;
+}

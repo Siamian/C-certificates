@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+	int d;
+
+	while (scanf("%d",&d)>0) // scanf("%d",&d) == 0 if we load from console any number type int
+		printf("%c\n",d); //print value of variable d as variable type char
+	
+
+
+
+	return 0;
+}

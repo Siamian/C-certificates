@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+
+    int k ;
+    char c;
+
+    printf("Wprowadz liczbe przesuniec.\n");
+    scanf("%d", &k);
+    printf("Przesuniecie o: %d\n",k);
+    printf("\nWprowadz haslo do zaszyfrowania.\n");
+
+    while ((c = getchar()) != EOF)
+    {
+            if (islower(c))
+            {
+                if (c + k > 122)
+                {
+                    c = 'a' + (k-1- (122 - c));
+                }
+                else
+                    c = c + k;
+            }
+            putchar(c);
+    }
+
+
+    return 0;
+}

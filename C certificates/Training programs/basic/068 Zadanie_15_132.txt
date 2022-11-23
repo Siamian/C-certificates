@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+double unit_conversion(double usage_in_miles_per_galon)
+{
+	double usage_in_liters_per_100km;
+
+	/*Tutaj umieść swój kod*/
+	usage_in_liters_per_100km = 3.785 * ((100 / (usage_in_miles_per_galon * 1.609)));
+	/***********************/
+
+	return usage_in_liters_per_100km;
+}
+
+int main()
+{
+	double usage_in_miles_per_galon;
+	double usage_in_liters_per_100km;
+
+	while (scanf("%lf", &usage_in_miles_per_galon) > 0)
+	{
+		usage_in_liters_per_100km = unit_conversion(usage_in_miles_per_galon);
+		printf("%.3f\n", usage_in_liters_per_100km);
+	}
+
+	return 0;
+}

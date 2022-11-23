@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+	char c = 255;
+	unsigned char uc = 255;
+
+	printf("char c = %d\n", c); //  range of variable type char  is -127 to 127
+
+	printf("unsigned char = %d\n", uc);//  range of variable type unsigned char  is 0,1,2,3, ... 255
+	// unsigned --> only non-negative numbers
+	return 0;
+}

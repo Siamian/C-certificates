@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+	int a = 12;
+	int b = 3;
+	char operation;
+	
+
+	printf("Choose operation ( '+' or 'p' for add, '-' or 's' for subtract\n");
+	scanf("%c", &operation);
+
+	switch (operation)
+	{
+	case '+': // must be : on end line
+	case 'p': // must be : on end line
+		printf("%d+%d=%d\n", a, b, a + b);
+		break;
+	case'-':
+	case's':
+		printf("%d-%d=%d\n", a, b, a - b);
+		break;
+	default:
+		printf("Error! Unknow operation: %c\n", operation);
+		break;
+	}
+
+	return 0;
+}

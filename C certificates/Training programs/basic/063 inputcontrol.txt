@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int readNumber() // this function is type int --> return variable num values, this functiont dont gave arguments
+{
+	int num;
+	printf("Enter number (greater than 0): \n");
+	do
+	{
+		scanf("%d", &num);
+		if (num <= 0)
+			printf("Invalid number. Please enter number greater than 0. \n");
+	} while (num <= 0); // " ; " must be on end loop do while
+		return num;
+}
+
+int main()
+{
+	int num1, num2;
+	num1 = readNumber();
+	num2 = readNumber();
+
+	printf("%d + %d = %d \n", num1, num2, num1 + num2);
+	return 0;
+}

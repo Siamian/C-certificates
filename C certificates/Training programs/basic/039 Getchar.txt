@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+	char c;
+
+	while ((c = getchar()) != EOF)
+		putchar(c);
+	/*
+	getchar() works like a scanf for char,
+	to the varianle c we assign letter (works for numbers too)  from console (getchar())
+	next check condition (c = getchar()) != EOF
+	EOF is 'END OF FILE' : 'CTRL + Z' and enter in console
+	putchar(c); is print value c
+	the compare operation takes precedence over the assignment operation
+	*/
+
+
+
+	return 0;
+}

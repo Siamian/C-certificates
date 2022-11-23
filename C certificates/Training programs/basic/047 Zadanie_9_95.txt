@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char c;
+
+    while ((c = getchar()) != EOF)
+    {
+            if (isspace(c))
+            {}else
+            putchar(c);
+    }
+    return 0;
+}

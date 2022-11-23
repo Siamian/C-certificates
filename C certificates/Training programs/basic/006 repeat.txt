@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main()
+{
+	char c; //create variable type char
+	scanf("%c", &c); //load character to variables address c
+
+	printf("%c", c); //display value of variable c
+	return 0;
+}

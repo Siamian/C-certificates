@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+	char x = 23;
+	char y = ~23; //negations on bits
+
+	printf("x = %d\n", x);
+	printf("y = %d\n",y); //negations on bits
+	printf("y+1 = %d\n",y+1); //negations on bits + 1 (in u2 negation oo digitals)
+
+	return 0;
+}

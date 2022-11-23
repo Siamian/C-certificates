@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+	int x;
+
+	x = 15; //change value x variable on 15
+
+
+	printf("x=%d\n", x);
+	printf("x=%d\n", ++x);  //increment : increase by 1 before code line
+	printf("x=%d\n\n", x);
+
+	x = 15;
+
+	printf("x=%d\n", x);
+	printf("x=%d\n", x++);  //increment : increase by 1 after code line
+	printf("x=%d\n\n", x);
+
+	x = 15;
+
+	printf("x=%d\n", x);
+	printf("x=%d\n", x--);  //decrement: reduction by 1 after code line
+	printf("x=%d\n\n", x);
+	
+	x = 15;
+
+	printf("x=%d\n", x);
+	printf("x=%d\n", --x);  //decrement: reduction by 1 before code line
+	printf("x=%d\n\n", x);
+
+	return 0;
+}

@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+	int a, b;
+	char operation;
+
+	printf("Enter number 1 and number 2\n");
+	scanf("%d %d", &a, &b);
+
+	printf("Enter operation\n");
+	scanf(" %c", &operation); //before %c must be space, because code can skip this line
+
+	if (operation == '+')
+		printf("%d+%d=%d\n", a, b, a + b);
+	else if (operation == '-')
+		printf("%d-%d=%d\n", a, b, a - b);
+	else if (operation == '*')
+		printf("%d*%d=%d\n", a, b, a * b);
+	else if (operation == '/')
+		printf("%d/%d=%d\n", a, b, a / b);
+	else
+		printf("Error! Unknow operation: %c\n", operation);
+	return 0;
+}

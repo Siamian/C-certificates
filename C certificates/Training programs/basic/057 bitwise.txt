@@ -1,0 +1,19 @@
+#include stdio.h
+
+int main()
+{
+	char x = 15;
+	char y = 17;
+	char or = x  y;  OR operator on bits
+	char and = x & y;  AND operator on bits
+	char xor = x ^ y; XOR operator on bits
+
+	printf(x = %dn, x );
+	printf(y = %dnn, y);
+
+	printf(x  y = %dn, or);
+	printf(x & y = %dn, and );
+	printf(x ^ y = %dn, xor );
+	 better see it on binary 
+	return 0;
+}

@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <ctype.h> //library for verification of digite etc
+
+int main()
+{
+	char c;
+
+	while ((c = getchar()) != EOF)
+	{
+		if(c != 10)
+		{
+			if (isdigit(c)) //verification of digite
+				putchar('1');
+			else
+				putchar('0');
+		}
+	}
+
+
+	return 0;
+}

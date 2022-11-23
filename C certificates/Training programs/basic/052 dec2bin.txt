@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+	int dec;
+	int bin;
+	int bit;
+	int mul;
+
+	while (scanf(" %d", &dec) > 0) //convert digital decimal on binary
+	{
+		bin = 0;
+		mul = 1;
+
+			while (dec > 0)
+			{
+				bit = dec % 2;
+				bin += bit * mul;
+				mul *= 10;
+				dec /=2;
+			}
+			printf("%d\n", bin);
+	}
+	return 0;
+}

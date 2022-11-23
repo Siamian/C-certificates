@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void incrase(int); //prototype of function, ciało funkcji is below main function
+//void incrase(int num); //also correctly prototype of function
+
+int main()
+{
+	int num = 2;
+
+	printf("main(): num = %d\n", num);
+	incrase(num);
+	printf("main(): num = %d\n", num);
+
+	return 0;
+}
+
+void incrase(int num)
+{
+	num++; // this variable num is copy int num value from main() loop, change in this function is not saved
+	printf("incrase(): num = %d\n", num); // only this function see change in num
+}

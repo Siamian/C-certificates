@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <math.h> //library for more mathematical operations
+
+int main()
+{
+	double angle;
+
+	printf("Enter angle: \n");
+	scanf("%lf", &angle); // double type in scanf function need " %lf " , " %f" is not correctly
+
+	printf("sin(%.2f) = %.2f\n", angle, sin(angle));// function from  library math.h
+	printf("cos(%.2f) = %.2f\n", angle, cos(angle));// function from  library math.h
+	printf("tan(%.2f) = %.2f\n", angle, tan(angle));// function from  library math.h
+	//printf("ctan(%.2f) = %.2f\n", angle, ctan(angle));//library math.h dont have function ctan
+	printf("ctan(%.2f) = %.2f\n", angle, 1.0/tan(angle));// " 1.0 "need correctly work with double\float type , " 1 " is not correctly
+
+
+	return 0;
+}

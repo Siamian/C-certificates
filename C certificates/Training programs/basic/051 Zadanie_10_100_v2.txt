@@ -1,0 +1,82 @@
+#include <stdio.h>
+ 
+int main()
+{
+    char c;
+    int state=0;
+    
+    while ((c=getchar())!=EOF)
+    {
+		switch (state)
+		{
+			//Brak komentarza
+			case 0:
+				if (c=='/')
+				{
+					state=1;
+				}
+				else if (c=='\"')
+				{
+					state=4;
+					putchar(c);
+				}
+				else
+				{
+					state=0;
+					putchar(c);
+				}
+				break;
+ 
+			//Możliwy komentarz
+			case 1:
+				if (c=='*')
+				{
+					state=2;
+				}
+				else if (c=='/')
+				{
+					state=1;
+					putchar('/');
+				}
+				else
+				{
+					state=0;
+					putchar('/');
+				}
+				break;
+ 
+			//Komentarz
+			case 2:
+				if (c=='*')
+					state=3;
+				else
+					state=2;
+				break;
+ 
+			//Możliwe wyjście z komentarza
+			case 3:
+				if (c=='/')
+					state=0;
+				else if (c=='*')
+					state=3;
+				else
+					state=2;
+				break;
+			
+			//Wewnątrz cudzysłowia
+			case 4:
+				if (c=='\"')
+				{
+					state=0;
+					putchar(c);
+				}
+				else
+				{
+					state=4;
+					putchar(c);
+				}
+		}
+    }
+    
+    return 0;
+}

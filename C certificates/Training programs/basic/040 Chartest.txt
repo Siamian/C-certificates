@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+	char c;
+
+	while ((c = getchar()) != EOF)
+		printf("%d\n",c);
+	/*
+	getchar() works like a scanf for char,
+	to the varianle c we assign letter (works for numbers too)  from console (getchar())
+	next check condition (c = getchar()) != EOF
+	EOF is 'END OF FILE' : 'CTRL + Z' and enter in console
+	the compare operation takes precedence over the assignment operation
+	printf("%d\n",c);  change dane from getchar(c) on variable type int
+	every letters be changing on number in code ASCII
+	*/
+
+
+
+	return 0;
+}
