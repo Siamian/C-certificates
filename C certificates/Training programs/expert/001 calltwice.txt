@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+typedef void action(); // define variable type void function
+
+void world()
+{
+    printf("world\n");
+}
+//void calltwice(void fun()) // another version 1
+//void calltwice(void (*fun)()) // another version 2
+void calltwice(action* fun) //argument is pointer function
+{
+    fun();
+    fun();
+}
+
+int main()
+{
+    calltwice(&world);
+    //calltwice(world); //another version
+    return 0;
+}

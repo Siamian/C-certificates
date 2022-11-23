@@ -1,0 +1,52 @@
+#include <windows.h>
+#include <stdio.h>
+
+#define NO_THREADS 2 //liczba wątków
+
+int sum;
+
+DWORD WINAPI ThreadWorker(LPVOID lpParam) //Funkcja co ma robić dany wątek, LPVOID to wskaznik na void
+{
+    for(int i=0;i<100000;i++) //po co? po to aby watki korzystały z zmiennej globalnej co skutkuje WYSCIGAMI
+    {
+        sum=sum+1;
+    }
+    return 0;
+}
+
+int main()
+{
+    HANDLE hThread[NO_THREADS]; // tablica dla uchwytów wątków (zmiennych typu HANDLE)
+    DWORD dwThreadId[NO_THREADS]; //tablica dla identyfikatorów wątków (zmiennych typu DWORD)
+
+    sum = 0;
+
+    hThread[0] = CreateThread(   //tworzenie i uruchamianie nowego wątku (1)
+        NULL,
+        0,                //rozmiar stosu wątku , 0 domyslna wartosc
+        ThreadWorker,  // wskażnik do funkcji który ma wykonywać wątek
+        NULL,           //// argument do funkcji który ma wykonywać wątek
+        0,              
+        &dwThreadId[0] //adres do ktorego ma byc wpisany identyfikator nowo utworzonego wątku
+    );
+
+    hThread[1] = CreateThread(  //tworzenie i uruchamianie kolejnego wątku (2)
+        NULL,
+        0,
+        ThreadWorker,
+        NULL,
+        0,
+        &dwThreadId[1]
+    );
+
+    WaitForMultipleObjects(NO_THREADS, hThread, TRUE, INFINITE);
+    //Poczekaj az wątki skoncza swoją pracę, 1 argument: ilość wątków, 
+    // 2 argument: tablica uchwytów wątków, 3 argument: jak długo czeka na skonczenie pracy wątków
+
+    CloseHandle(hThread[0]); //zamknięcie wątku 1
+    CloseHandle(hThread[1]); //zamknięcie wątku 2
+
+    printf("%d\n",sum); //wyswietla wartosc zmiennej sum
+
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h> // for function qsort
+
+#define LEN 7
+
+int compare(void* a, void* b)
+{
+    int a_ = *(int*)a;
+    int b_ = *(int*)b;
+
+    return (b_%2) - (a_%2); // sort by parity
+    //return a_ - b_;  //sort by order
+}
+
+int main()
+{
+    int data[LEN]={4, 1, 5, 7, 3, 2, 10};
+
+    qsort(data, LEN ,sizeof(int), compare);
+    //argument 1: table with elements to sort
+    //argument 2: number of elements to sort
+    //argument 3: function (of type like a argument 2) with 2 arguments type point on void
+
+    return 0;
+}

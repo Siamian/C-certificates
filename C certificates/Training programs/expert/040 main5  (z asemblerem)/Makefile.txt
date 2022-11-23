@@ -1,0 +1,17 @@
+all: main.o libmath.a
+	gcc -o main main.o -L. -lmath
+
+main.o: main.c
+	gcc -Iinc -c main.c
+
+libmath.a: add.o sub.o
+	ar rsc libmath.a add.o sub.o
+
+add.o: add.s
+	gcc -c add.s
+
+sub.o: sub.c
+	gcc -c -Iinc sub.c
+
+clean:
+	del main.exe add.o libmath.a sub.o

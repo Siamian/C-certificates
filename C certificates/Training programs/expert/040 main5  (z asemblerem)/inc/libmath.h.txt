@@ -1,0 +1,2 @@
+int add(int a, int b); //prototyp funkcji dodawania
+int sub(int a, int b); //prototyp funkcji odejmowania

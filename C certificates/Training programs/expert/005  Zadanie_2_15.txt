@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h> //for qsort function
+#include <string.h> //for strcmp function
+
+#define AMOUNT 5 //ilość słów
+#define SIZE 20  //maksymalna długość słów
+
+/*-----------------------------------------------COMPARE---------------------------------------------------------*/
+int compare (const void* a, const void* b)
+{
+    char* a_ = (char*)a; //bez tego i..
+    char* b_ = (char*)b; //bez tego tez dziala tylko w nizej musi byc return strcmp(a, b);
+    
+    return strcmp(a_, b_);
+}
+/*-----------------------------------------------COMPARE---------------------------------------------------------*/
+
+
+int main()
+{
+    char c;
+    int i,j;
+
+    char tab[AMOUNT][(SIZE+1)]; //tablica tablic charów jako tablica stringów(słów)
+
+/*-----------------------------------------------GETCHAR---------------------------------------------------------*/
+    for(i=0;i<AMOUNT;i++)
+    {
+        for(j=0; j<(SIZE+1);j++)
+        {   
+            c=getchar();
+            if(c=='\n')
+            {
+                tab[i][j] = 0;
+                break;
+            }else
+            {
+                tab[i][j] =c;
+            }
+        }
+    }
+/*-----------------------------------------------GETCHAR---------------------------------------------------------*/
+
+/*-----------------------------------------------QSORT---------------------------------------------------------*/
+qsort(tab, AMOUNT, ((sizeof(char))*SIZE+1), compare);
+/*-----------------------------------------------QSORT---------------------------------------------------------*/
+
+/*-----------------------------------------------PUTCHAR---------------------------------------------------------*/
+    printf("\n");
+    for(i=0;i<AMOUNT;i++)
+    {
+        for(j=0;j<(SIZE+1);j++)
+        {   
+            if(tab[i][j] == 0)   // 0 lub '\000'
+            {
+                break;
+            }else
+            {
+                putchar(tab[i][j]);
+
+            }
+        }
+        putchar('\n');
+    }
+/*-----------------------------------------------PUTCHAR---------------------------------------------------------*/
+
+    return 0;
+}

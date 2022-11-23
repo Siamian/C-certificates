@@ -1,0 +1,53 @@
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+
+#define BUFFSIZE 1024
+
+int main(int argc, char** argv) //argc to liczba wprowadzonych argumentow. argv[1] jako plik wejsciowy, argv[2] jako plik wynikowy,  argv[0] to nazwa pliku wiec zaczynamy od argv[1]
+{
+    int inputFile;        //zmienna wejsciowa do zapisu pliku, int dla linuxa
+    int outputFile;       //zmienna wejsciowa do zapisu pliku, int dla linuxa
+    int noReadBytes;        //liczba odczytanych bajtów
+    int noWritteBytes;      //liczba zapisanych bajtów
+    char buffer[BUFFSIZE];   //tablica bufforu
+
+    if (argc != 3) //sprawdza czy podano odpowiednia ilosc argumentow, argv[0] to nazwa pliku, argv[1] i argv[2] to nasze argumenty
+    {
+        printf("Usage: cp input output\n");
+        return 1;
+    }
+
+    inputFile = open(argv[1], O_RDONLY); //otwarcie pliku wejsciowego  z flaga read binary (odczyt binarnie) ??, argv[0] to nazwa pliku wiec zaczynamy od argv[1]
+    if (inputFile == -1) //sprawdza czy w inputFile zostalo cos wpisane/czy operacja ww zostala przeprowadzona poprawnie, w linuxie -1 jak NULL 
+    {
+        printf("Cannot open file %s\n", argv[1]);
+        return 2;
+    }
+
+    outputFile = creat(argv[2], 0666); //otwarcie pliku wyjsciowego  z flaga writte binary (zapis binarnie)
+    if (outputFile == -1)
+    {
+        printf("Cannot open file %s\n", argv[2]);
+        return 3;
+    }
+
+                        //operacja przepisywania
+    while((noReadBytes = read(inputFile, buffer, BUFFSIZE))>0)  //czyta plik wejsciowy do bufora
+    {
+        noWritteBytes = write(outputFile, buffer, noReadBytes); //zapisuje plik z bufora do wyjscia
+
+        if(noWritteBytes != noReadBytes) //sprawdza czy liczba bajtow odczytanych rowna sie liczbie bajtow zapisanych
+                                            // sprawdza czy skopiowano wszystko
+        {
+            printf("Error during copying the file\n");
+            return 4;
+        }
+    }
+
+    close(inputFile); //zamknij uchwytu (pliku?) wejsciowy
+    close(outputFile); //zamknij uchwytu (pliku?) wyjsciowy
+
+    return 0;
+}

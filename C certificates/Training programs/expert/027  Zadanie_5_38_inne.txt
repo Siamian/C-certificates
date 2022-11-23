@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <ctype.h>
+ 
+#define BUFF_LEN 32
+ 
+int isoperator(char symbol)
+{
+    return (symbol=='*') || (symbol=='+');
+}
+ 
+int compute_postfix(char expr[])
+{
+    char stack[BUFF_LEN];
+    int stack_ptr = 0;
+    int expr_ptr = 0;
+ 
+ 
+    while (expr[expr_ptr] != 0)
+    {
+        char symbol = expr[expr_ptr++];
+        if (isdigit(symbol))
+        {
+            stack[stack_ptr++] = symbol-'0';
+        }
+        else if (isoperator(symbol))
+        {
+            int a = stack[--stack_ptr];
+            int b = stack[--stack_ptr];
+            int c;
+            switch (symbol)
+            {
+                case '+': c = b+a; break;
+                case '*': c = b*a; break;
+            }
+            stack[stack_ptr++]=c;
+        }
+    }
+ 
+    return stack[stack_ptr-1];
+}

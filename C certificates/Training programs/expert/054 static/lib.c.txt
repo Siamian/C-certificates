@@ -1,0 +1,21 @@
+#include "lib.h"
+#include <stdio.h>
+#include <string.h> //dla strcpy
+
+static char dev_id[4]; //static powoduje rozróznienie dev_id[4] miedzy tą z lib.c a tą z main.c
+
+void initialize_device()
+{
+    strcpy(dev_id, "ABC"); //strcpy kopiuje łancuch znaków z (tablicy) drugiego argumentu do tablicy pierwszego
+}
+
+void connect_to_device()
+{
+    printf("Connect to : %s\n", dev_id);
+}
+
+void disconnect_from_device()
+{
+    printf("Disconnected from: %s\n", dev_id);  
+}
+

@@ -1,0 +1,13 @@
+#include <stdio.h> // <> tylko dla bibliotek standardowych
+#include "inc/add.h"   //"" dla dodatkowych plików; folder/nazwa dodatkowego pliku
+//#include "add.h" // uzywajac takiej formy nalezy przy kompilacji uzyc -Iinc
+
+//int add(int a, int b); //prototyp funkcji z pliku add.c
+// teraz prototyp ten znajduje sie w pliku add.h w folderze inc
+
+int main()
+{
+    printf("%d", add(1, 2)); //uzywamy funkcje ktora znajduje sie w pliku add.c
+
+    return 0;
+}

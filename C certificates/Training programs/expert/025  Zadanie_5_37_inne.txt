@@ -1,0 +1,70 @@
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+ 
+#define BUFF_LEN 32
+ 
+int isoperator(char symbol)
+{
+    return (symbol=='*') || (symbol=='+');
+}
+ 
+int priority(char symbol)
+{
+    switch (symbol)
+    {
+        case '+': return 1; 
+        case '*': return 2; 
+        default: return -1;
+    }
+}
+ 
+void convert_to_postfix(char input[], char output[])
+{
+    char stack[BUFF_LEN];
+    int stack_ptr = 0;
+    int input_ptr = 0;
+    int output_ptr = 0;
+ 
+    while (input[input_ptr]!=0)
+    {
+        char symbol = input[input_ptr++];
+        if (isdigit(symbol))
+        {
+            output[output_ptr++]=symbol;
+        }
+        else if (isoperator(symbol))
+        {
+            while (stack_ptr>0 && (priority(symbol) <= priority(stack[stack_ptr])))
+            {
+                output[output_ptr++]=stack[--stack_ptr];
+            }
+            stack[stack_ptr++]=symbol;
+        }
+        else if (symbol=='(')
+        {
+            stack[stack_ptr++]=symbol;
+        }
+        else if (symbol==')')
+        {
+            while (stack_ptr>0 && stack[stack_ptr-1]!='(')
+            {
+                if (stack[stack_ptr-1]!='(')
+                {
+                    output[output_ptr++]=stack[--stack_ptr];
+                }
+            }
+            if (stack_ptr>0)
+            {
+                stack_ptr--;
+            }
+        }
+    }
+ 
+    while (stack_ptr>0)
+    {
+        output[output_ptr++]=stack[--stack_ptr];
+    }
+    output[output_ptr]=0;
+}

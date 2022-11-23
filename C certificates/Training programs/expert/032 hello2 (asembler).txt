@@ -1,0 +1,20 @@
+	.section .rdata,"dr"
+LC0:
+	.ascii "%d\0"
+	.text
+	.globl	_main
+
+_main:
+	pushl	%ebp
+	movl	%esp, %ebp
+	
+	#printf("Hello")
+	#printf("%d", 234)
+
+	pushl   $234
+	pushl	$LC0
+	call	_printf
+	movl	$123, %eax
+	leave
+	ret
+	

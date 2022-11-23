@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h> //do atoi();
+#include <signal.h> //do obslugi przerwan
+
+void signal_handler(int sig) //funkcja obsługi błędów
+{
+    switch(sig)
+    {
+        case SIGFPE:  //SIGFPE to kod błędu arytmetycznego np dzielenia prez 0
+            printf("Arithmetic error\n");
+            break;
+    }
+}
+
+int main(int argc, char** argv)
+{
+    int a,b,c;
+
+    signal(SIGFPE, signal_handler); //Argymenty: kod sygnalu oraz wskaznik do funkcji obslugi sygnalu
+
+    a = atoi(argv[1]); //zamiana argumentu jako łańcuch znaków do pojedynczej zmiennej
+    b = atoi(argv[2]);
+    c = a / b;
+
+    printf("%d / %d = %d\n", a, b, c);
+
+    return 0;
+}

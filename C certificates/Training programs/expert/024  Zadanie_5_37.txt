@@ -1,0 +1,136 @@
+#include <stdio.h>
+
+void convert_to_postfix(char input[], char output[])
+{
+
+    char stos [32]; //bufor
+    int prio = 4; // 4 to znaczy ze jest pusty, priorytet
+    int j = 0;
+    int i = 0; //pozycja wejscia
+    int n = 0; //pozycja wyjscia
+
+    while(input[i] != 0)
+    {
+
+        switch(input[i])
+        {
+            case '+':
+
+                if((1 > prio) || (prio == 4))
+                {
+                stos[j] = '+';
+                prio = 1;
+                j++;
+                }else
+                {
+                    while(j>=0)
+                    {
+                        j--;
+                        output[n] = stos[j];
+                        n++;
+                    }
+
+                    j = 0;
+                    stos[j] = '+';
+                    j++;
+                }
+                
+                break;
+            case '*':
+
+                if((2 > prio) || (prio == 4))
+                {
+                stos[j] = '*';
+                prio = 2;
+                j++;
+                }else
+                {
+                    while(j>=0)
+                    {
+                        j--;
+                        output[n] = stos[j];
+                        n++;
+                    }
+
+                    j = 0;
+                    stos[j] = '*';
+                    j++;
+                }
+
+                break;
+            case '(':
+                stos[j] = '(';
+                prio = 0;
+                j++;
+
+                break;
+            case ')':
+                while(j>=0)
+                {
+                    j--;
+                    prio = 1;
+
+                    if(stos[j] != '(')
+                    {
+                    output[n] = stos[j];
+                    n++;
+                    }else
+                    {
+                        break;
+                    }
+                }
+
+                break;
+
+            default:
+                output[n] = input[i];
+                n++;
+                break;
+        }
+        i++;
+
+    }
+    while(j>=0)
+    {
+        j--;
+        output[n] = stos[j];
+        n++;
+    }
+    output[n] = 0;
+}
+
+int main()
+{
+    int i;
+
+    //char in[32] = "1+2";            //12+
+    //char in[32] = "1+2*3";          //123*+
+    //char in[32] = "(1+2)*3";        //12+3*
+    char in[32] = "((1+2)*(3+4))";  //12+34+*
+    
+    char out[32] = "____________________";
+
+    convert_to_postfix(in, out);
+    
+    printf("\nWejscie:\n");
+    i=0;
+    while(in[i] != 0)
+    {
+        printf("%c", in[i]);
+        i++;
+    }
+    printf("\n");
+    printf("\nWyjscie:\n");
+    i=0;
+    while(out[i] != 0)
+    {
+        printf("%c", out[i]);
+        i++;
+    }
+
+
+
+
+
+    return 0;
+}

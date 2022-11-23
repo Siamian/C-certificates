@@ -1,0 +1,59 @@
+#include <stdio.h>
+/*----------------EXAMPLE 1----------------*/
+#define xp 1.0 // first x approximation value
+#define a 8.0 // parametr a
+#define y power3 //function
+#define d power3_derivative //derivative
+
+/*----------------EXAMPLE 2----------------*/
+#define xp2 1.0 // first x approximation value
+#define a2 9.0 // parametr a
+#define y2 square //function
+#define d2 square_derivative //derivative
+
+double square(double x, double value) //calculating the square function
+{
+    return x*x-value;
+}
+
+double square_derivative(double x, double value) //calculating derivative the square function
+{
+    return 2*x;
+}
+
+double power3(double x, double value) //calculating third degree functions
+{
+    return x*x*x-value;
+}
+
+double power3_derivative(double x, double value) //calculating derivative third degree functions
+{
+    return 3*x*x;
+}
+
+double solve(double fun(double, double), double fun_der(double, double), double x0, double param) //looking for the root of a function
+{
+    double x = x0;
+    double fx; //function value
+    double eps = 1e-12; //approximation
+
+    do
+    {
+        fx = fun(x,param); // function for next approximation x
+        double fpx = fun_der(x, param); //derivative of function value for next approximation x
+        x = x - fx / fpx;
+    } while (fx > eps || fx < -eps);
+    
+    return x;
+}
+
+int main()
+{   
+   //double x =solve(power3, power3_derivative, xp, a); // for powe 3 function
+    //double x =solve(square, square_derivative, 1.0, 9.0); // for square function
+
+    printf("Example 1: x = %lf\n",solve(y, d, xp, a)); // example 1
+    printf("Example 2: x = %lf\n",solve(y2, d2, xp2, a2)); // example 2
+
+   return 0;
+}

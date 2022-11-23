@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+#define NO_OP ' '
+
+typedef struct tree_el //stworzenie struktury o nazwie tree_el
+{
+    char op; //operacja
+    double val; //wartosc
+    int is_val_computed; //czy wartosc zostala obliczona
+
+    struct tree_el *left; //wskaznik na strukture (w strukturze) tj. nowa gałąź w drzrzewie
+    struct tree_el *right; // jak wyzej
+}tree_el;
+
+tree_el create_op(char op) //funkcja tworzaca nowa strukture typu tree_el bedąca operatorem(+,- itp)i zwracajaca ją
+{
+    tree_el new_el = {op, 0, 0, NULL, NULL}; //szybkie stworzenie struktury
+    return new_el;                            //3 argument struktury przyjmuje 0 bo struktura nie jest liczba a operatorem ktory liczy inne liczby bedace podgaleziami struktury
+}
+
+tree_el create_val(double val) //funkcja tworzaca nowa strukture typu tree_el bedąca liczbą i zwracajaca ją
+{
+    tree_el new_el = {NO_OP, val, 1, NULL, NULL}; //szybkie stworzenie struktury
+    return new_el;                                //3 argument struktury  tj. 1 nie jest 0  jak wyzej bo liczba ktora przyjmuje funkcja jako swoj argument jest juz policzona
+}
+
+int main()
+{
+    //1+2*3
+    tree_el el1, el2, el3, el4, el5; //tworzenie 5 struktur typu tree_el
+
+    el1 = create_val(1); //tworzenie struktury  tree_el bedacej liczba za pomoca funkcji
+    el2 = create_op('+'); //tworzenie struktury  tree_el bedacej operatorem za pomoca funkcji
+    el3 = create_val(2);
+    el4 = create_op('*');
+    el5 = create_val(3);
+
+  //łączenie struktur bedacych operatorami z składnikami działania
+                    
+                    //1 + *
+    el2.left = &el1;  //  1 + ..
+    el2.right = &el4; // ... + *     //*jest operatorem ale po obliczeniu swoich galezi bedzie liczba
+                    
+                    // 2 * 3
+    el4.left = &el3; // 2 * ...
+    el4.right = &el5; //... * 3
+
+    return 0;
+}
+/*         Struktura drzewa 1+2*3 :
+                          ____________  +  ____________         
+                         |                             |
+                         1                     ______  *  ______
+                                              |                 | 
+                                              2                 3
+
+
+*/

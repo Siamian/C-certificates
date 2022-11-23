@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h> // dla funkcji malloc
+
+typedef struct stack_el  //tworzenie struktury o nazwie stack_el
+{
+    int value;
+    struct stack_el* next; //zmienna typu wskaznik struktury stack_el ?
+} stack_el;
+
+stack_el new_stack_el(int value) //funkcja typu utworzonej struktury
+{
+    stack_el el = {value, NULL}; //sybkie tworzenie nowej struktury stack_el
+    return el; //zwrocenie zawartosci struktury
+}
+
+void push(stack_el** ptr, int value) //argumenty: adres pod ktorym jest adres powiazanej struktury oraz kolejna wartosc wpisana  do stosu
+{
+    stack_el* new_element = (stack_el*)malloc(sizeof(stack_el)); //tworzymu kolejny adres do struktury stack_el o nazwie new_element 
+                                                                //wykorzystujac pamiec dynamiczna malloc
+    new_element->value = value; //przypisujemy strukturze new_element dane z argumentów wywołanej funkcji,
+                                //specyficzny zapis inny niz: new_element.value = value; ponieważ struktura została zadeklarowana 
+                                // jako wskaznik na strukture stack_el ???
+    new_element->next = *ptr;   //powiazanie aktualnie wpisywanego elementu stosu z poprzednim elementem za pomoca adresu
+
+    *ptr = new_element; // nadpisanie dresu powiazania kolejny nowym adresem aktualnie utworzonej struktury
+                        //zapewnie *ptr = new_element; nadpisuje stack_el* stack z funkcji main nowo utworzonym adresem stack_el* new_element
+}
+
+int pop(stack_el** ptr) //argumenty: adres pod ktorym jest adres powiazanej struktury (kolejnego elementu stosu)
+{
+    int value;
+
+    stack_el* old_ptr = *ptr; //zapisujemy adres pod ktorym jest adres powiazanej struktury (kolejnego elementu stosu) taki backup
+
+    *ptr = (*ptr)->next; //nadpisujemy aktualny adres adresu struktury poprzednim adresem schowanym w old_ptr.next (wczesniej w new_element.next)
+    value = old_ptr->value; // zapisanie do zmiennej value wartosci z old_ptr.value (wczesniej w new_element.value)
+
+    free(old_ptr); //czyscimy pamiec malloc z struktury old_ptr, najnowsza wartosc zosala usunieta z stosu
+
+    return value; //zwraca wartosc usunieta z sosu
+}
+
+int main()
+{
+    stack_el* stack = NULL; //tworzymy pierwszy (pust) adres do struktury stack_el o nazwie stack do powiazan kolejnymi elementami stosu
+                            //dopiero kolejne adresy stack beda mialy konkretne adresy kolejnych elementów
+                            
+    push(&stack, 1); //wywolujemy funkcje push podajac adres aktualnie przypisanego adresu stack i wartosc do stosu
+    push(&stack, 2); //wywolujemy funkcje push podajac adres aktualnie przypisanego adresu stack i wartosc do stosu
+    push(&stack, 3); //wywolujemy funkcje push podajac adres aktualnie przypisanego adresu stack i wartosc do stosu
+
+    pop(&stack); //usuń element z stosu
+    pop(&stack); //usuń element z stosu
+    pop(&stack); //usuń element z stosu
+
+    return 0;
+}

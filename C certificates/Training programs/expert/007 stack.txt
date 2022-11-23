@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+typedef struct stack_el  //tworzenie struktury o nazwie stack_el
+{
+    int value;
+    struct stack_el* next; //zmienna typu wskaznik struktury stack_el ?
+} stack_el;
+
+stack_el new_stack_el(int value) //funkcja typu utworzonej struktury
+{
+    stack_el el = {value, NULL}; //sybkie tworzenie nowej struktury stack_el
+    return el; //zwrocenie zawartosci struktury
+}
+
+
+int main()
+{
+    stack_el el1, el2, el3; //tworzenie struktur typu struktura stack_el
+
+    el1 = new_stack_el(1); //konfiguracja struktury oraz przypisanie przechowywanej wartosci 
+    el2 = new_stack_el(2);
+    el3 = new_stack_el(3);
+                        //powiązanie struktur
+    el3.next = &el2; //powiazanie struktury el3 z el2 (el3 bedzie zawierac w zmiennej next adres el2)
+    el2.next = &el1; //powiazanie struktury el2 z el1 (el2 bedzie zawierac w zmiennej next adres el1)
+    el1.next = NULL; //pierwszej struktury nie powiazujemy, NULL czyli pusty adres
+
+    return 0;
+}

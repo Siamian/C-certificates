@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h> //obsługa przerwań
+
+volatile int val; //zmienna globalna, ulotna czyli taka której kompilator nie może optymalizować
+                  //dzięki volatile int val nie jest brane pod uwagę podczas optymalizacji
+void signal_handler(int sig) //funkcja przerwania
+{
+    switch (sig)
+    { // SIGINT czyli reakcja na zewnętrzne urzycie klawiszy: ctrl+c
+        case SIGINT:             
+            printf("Interrupt\n");
+            val = 2;
+            break;
+    }
+}
+
+int main(int argc, char** argv)
+{
+    unsigned int sum = 0;
+    int no =0;
+
+    signal(SIGINT, signal_handler); //inicjalizacja przerwań
+
+    val = atoi(argv[1]);
+    no = atoi(argv[2]);
+
+    while(no--)
+    {
+        sum += val;
+    }
+
+    printf("%u\n", sum); //%u do zmiennej beznaku, u jak unsigned
+
+    return 0;
+}

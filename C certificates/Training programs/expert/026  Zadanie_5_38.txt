@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int compute_postfix(char expr[])
+{   
+    int stos [32]; //bufor
+    int i = 0; //pozycja w tablicy expr
+    int j = 0; //pozycja w tablicy stos
+
+    while(expr[i] != 0)
+    {
+
+        switch(expr[i])
+        {
+            case '+':
+                stos[j-2] = (stos[j-1]) + (stos[j-2]);
+                j--;
+                break;
+            case '*':
+                stos[j-2] = (stos[j-1]) * (stos[j-2]);
+                j--;
+                break;
+            default:
+                stos[j] = expr[i] - '0';
+                j++;
+                break;
+        }
+        i++;
+    }
+    j--;
+
+    return stos[j];
+}
+
+int main()
+{
+    int i;
+    //char tab[32] = "12+"; // 3
+    //char tab[32] = "123*+"; // 7
+    //char tab[32] = "12+3*"; // 9
+    char tab[32] = "12+34+*"; // 21
+
+    printf("\nDo obliczenia:\n");
+    i=0;
+    while(tab[i] != 0)
+    {
+        printf("%c", tab[i]);
+        i++;
+    }
+    printf("\n");
+    printf("\nWynik: %d\n", compute_postfix(tab));
+
+
+    return 0;
+}

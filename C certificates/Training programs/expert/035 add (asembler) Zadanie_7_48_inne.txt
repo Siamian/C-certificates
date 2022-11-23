@@ -1,0 +1,53 @@
+    .section .rdata,"dr"
+LC0:
+    .ascii "%d\0"
+ 
+    .text
+    .globl  _main
+ 
+_main:
+    # Tworzymy ramkę stosu
+    pushl   %ebp
+    movl    %esp, %ebp
+    # --------------------
+    
+    # Konwertujemy pierwszy argument na int
+    movl    12(%ebp), %eax  # Przenosimy do EAX adres argv[0]
+    addl    $4, %eax        # Zwiększamy EAX o 4 tak, aby wskazywał na argv[1]
+    pushl   (%eax)          # Wrzucamy adres argv[1] na stos
+    call    _atoi           # Wywołujemy funkcję atoi - w efekcie w EAX znajduje się argv[1] 
+                            # skonwertowane na int
+    addl    $4, %esp        # Zwiększamy wartość ESP o 4, czyli zdejmujemy adres argv[1] ze stosu
+     # --------------------------------------------------------------------------------------------------------
+ 
+    # Zapisujemy skonwertowane na int argv[1] na stosie
+    pushl    %eax
+ 
+    # Konwertujemy drugi argument na int
+    movl    12(%ebp), %eax  # Przenosimy do EAX adres argv[0]
+    addl    $8, %eax        # Zwiększamy EAX o 8 tak, aby wskazywał na argv[2]
+    pushl   (%eax)          # Wrzucamy adres argv[2] na stos
+    call    _atoi           # Wywołujemy funkcję atoi - w efekcie w EAX znajduje się argv[2] 
+                            # skonwertowane na int
+    addl    $4, %esp        # Zwiększamy wartość ESP o 4, czyli zdejmujemy adres argv[2] ze stosu  
+     # --------------------------------------------------------------------------------------------------------
+ 
+    # Dodajemy argumenty
+    movl    (%esp), %edx    # Ściągamy ze stosu skonwertowane argv[1] do EDX. 
+                            # Teraz w EAX jest skonwertowane argv[2], a w EDX - argv[1]
+    addl    %edx, %eax      # Dodajemy skonwertowane argumenty
+    # ---------------------------------------------------------------------------------------------------------
+ 
+    # Drukujemy wyniki
+    pushl   %eax            # Wrzucamy wynik dodawania
+    pushl   $LC0            # Wrzucamy łańcuch formatujący na stos
+    call    _printf         # Wywołujemy funkcję printf
+    # ---------------------------------------------------------------------------------------------------------
+ 
+    # Poprawnie zamykamy funkcję main z kodem powrotu 0
+    movl    $0, %eax
+ 
+    leave
+    ret
+    # ---------------------------------------------------------------------------------------------------------
+ 

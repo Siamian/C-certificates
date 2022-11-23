@@ -1,0 +1,11 @@
+#include <stdio.h> // <> tylko dla bibliotek standardowych
+//#include "inc/libmath.h"   //"" dla dodatkowych plików; folder/nazwa dodatkowego pliku
+#include "libmath.h" // uzywajac takiej formy nalezy przy kompilacji uzyc -Iinc
+
+
+int main()
+{
+    //printf("%d", add(1, 2)); 
+    printf("%d", sub(add(1, 2), 1)); //uzywamy funkcji ktorej prototypy  znajduja sie w pliku libmath.c
+    return 0;                       // same funkcje znajduja sie w  add.s i sub.c
+}

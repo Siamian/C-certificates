@@ -1,0 +1,80 @@
+#include <stdio.h>
+
+void connect_to_device();
+void measure();
+void disconnect_from_device();
+
+int connection1();
+int connection2();
+int connection3();
+
+int main()
+{
+    connect_to_device();
+    measure();
+    disconnect_from_device();
+
+    return 0;
+}
+int connection1()
+{
+    return 0;
+}
+
+int connection2()
+{
+    return 0;
+}
+
+int connection3()
+{
+    return 0;
+}
+
+void connect_to_device()
+{
+    printf("Allocating resources\n");
+/*        OLD VERSION WITHOUT GOTO
+
+    if (connection1() !=0)
+    {
+        if (connection2() !=0)
+        {
+            if (connection3() !=0)
+            {
+                retuen;
+            }else
+            {
+                printf("Free resources\n");
+            }
+        }else
+        {
+            printf("Free resources\n");
+        }
+    }else
+    {
+        printf("Free resources\n");
+    }
+*/
+
+    if (connection1() != 0)
+        goto ERR;  //skok do etykiety o nazwie ERR:
+
+    if (connection2() != 0)
+        goto ERR;
+
+    if (connection3() != 0)
+        goto ERR;
+
+    return; //musimy powrócic bo inaczej printf("Free resources\n"); wykona sie mimo wszystko, ERR nie jest warunkiem
+
+           //etykieta ERR czyli miejsce od ktorego jest kontynuowane dzialanie programu od komendy goto ERR
+    ERR:   //reszta programu wyzej jest pomijana
+        printf("Free resources\n");
+}
+
+void measure()
+{}
+
+void disconnect_from_device()
+{}

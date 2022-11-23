@@ -1,0 +1,3 @@
+gcc -Iinc -c add.s sub.c
+ar rsc libmath.a add.o sub.o
+gcc -o main main.c -Iinc -L. -lmath

@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+#define BUFFSIZE 1024
+
+int main(int argc, char** argv) //argc to liczba wprowadzonych argumentow. argv[1] jako plik wejsciowy, argv[2] jako plik wynikowy,  argv[0] to nazwa pliku wiec zaczynamy od argv[1]
+{
+    FILE* inputFile;        //zmienna wejsciowa do zapisu pliku
+    FILE* outputFile;       //zmienna wejsciowa do zapisu pliku
+    int noReadBytes;        //liczba odczytanych bajtów
+    int noWritteBytes;      //liczba zapisanych bajtów
+    char buffer[BUFFSIZE];   //tablica bufforu
+
+    if (argc != 3) //sprawdza czy podano odpowiednia ilosc argumentow, argv[0] to nazwa pliku, argv[1] i argv[2] to nasze argumenty
+    {
+        printf("Usage: cp input output\n");
+        return 1;
+    }
+
+    inputFile = fopen(argv[1], "rb"); //otwarcie pliku wejsciowego  z flaga read binary (odczyt binarnie) ??, argv[0] to nazwa pliku wiec zaczynamy od argv[1]
+    if (inputFile == NULL) //sprawdza czy w inputFile zostalo cos wpisane/czy operacja ww zostala przeprowadzona poprawnie
+    {
+        printf("Cannot open file %s\n", argv[1]);
+        return 2;
+    }
+
+    outputFile = fopen(argv[2], "wb"); //otwarcie pliku wyjsciowego  z flaga writte binary (zapis binarnie)
+    if (outputFile == NULL)
+    {
+        printf("Cannot open file %s\n", argv[2]);
+        return 3;
+    }
+
+                        //operacja przepisywania
+    while((noReadBytes = fread(buffer, sizeof(char), BUFFSIZE, inputFile))>0)  //czyta plik wejsciowy do bufora
+    {
+        noWritteBytes = fwrite(buffer, sizeof(char), noReadBytes, outputFile); //zapisuje plik z bufora do wyjscia
+
+        if(noWritteBytes != noReadBytes) //sprawdza czy liczba bajtow odczytanych rowna sie liczbie bajtow zapisanych
+                                            // sprawdza czy skopiowano wszystko
+        {
+            printf("Error during copying the file\n");
+            return 4;
+        }
+    }
+
+    fclose(inputFile); //zamknij uchwytu (pliku?) wejsciowy
+    fclose(outputFile); //zamknij uchwytu (pliku?) wyjsciowy
+
+    return 0;
+}

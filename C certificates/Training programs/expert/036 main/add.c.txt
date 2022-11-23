@@ -1,0 +1,7 @@
+#include "inc/add.h" // inc wskazuje folder
+//#include "add.h" // uzywajac takiej formy nalezy przy kompilacji uzyc -Iinc
+
+int add(int a, int b)
+{
+    return a+b;
+}
